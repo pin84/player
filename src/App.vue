@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <h1>player</h1>
+    <aHeader></aHeader>
+    <tab></tab>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import aHeader from './components/header/Header'
+import Tab from './components/tab/tab'
 export default {
-  name: 'App'
+  components: {
+    aHeader,
+    Tab
+  }
 }
 </script>
 
