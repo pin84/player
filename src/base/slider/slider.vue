@@ -3,15 +3,16 @@
     <div class="slider-group" ref="sliderGroup">
       <slot></slot>
     </div>
+    <div class='dots'></div>
   </div>
 </template>
 
 <script>
-  // import BScroll from 'better-scroll'
-  // import {addClass} from 'common/js/dom'
+  import BScroll from 'better-scroll'
+  import {addClass} from 'common/js/dom'
 
   export default {
-    /*
+    
     data() {
       return {
         dots: [],
@@ -33,23 +34,24 @@
       }
     },
     mounted() {
+      //20ms 是浏览器的刷新时间。
       setTimeout(() => {
         this._setSliderWidth()
-        this._initDots()
-        this._initSlider()
+        // this._initDots()
+        // this._initSlider()
 
-        if (this.autoPlay) {
-          this._play()
-        }
+        // if (this.autoPlay) {
+        //   this._play()
+        // }
       }, 20)
 
-      window.addEventListener('resize', () => {
-        if (!this.slider) {
-          return
-        }
-        this._setSliderWidth(true)
-        this.slider.refresh()
-      })
+      // window.addEventListener('resize', () => {
+      //   if (!this.slider) {
+      //     return
+      //   }
+      //   this._setSliderWidth(true)
+      //   this.slider.refresh()
+      // })
     },
     methods: {
       _setSliderWidth(isResize) {
@@ -59,6 +61,7 @@
 
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
+          console.log(child)
           addClass(child, 'slider-item')
 
           child.style.width = sliderWidth + 'px'
@@ -110,7 +113,7 @@
       console.log('destroyed')
       clearTimeout(this.timer)
     }
-  */
+  
   }
 </script>
 
@@ -130,6 +133,8 @@
         text-align: center
         a
           display: block
+          width 100%
+          overflow hidden
         /*width: 100%*/
         img
           display: block

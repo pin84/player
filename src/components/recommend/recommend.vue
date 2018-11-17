@@ -1,14 +1,13 @@
 <template>
   <div class="recommend">
     <div class="recommend-content">
-      <div  class="slider-wrapper">
+      <div v-if='recommends.length'  class="slider-wrapper">
         <slider>
           <div v-for='(item,index) in recommends' :key='index'>
             <a :href="item.linkUrl">
               <img :src="item.picUrl">
             </a>
           </div>
-
         </slider>
       </div>
       <div  class="recommend-list">
@@ -32,10 +31,12 @@ export default {
 	},
   created() {
     this._getRecommend()
+    
   },
   methods: {
     _getRecommend() {
       getRecommend().then((res) => {
+        console.log(res.data.slider)
         this.recommends = res.data.slider
       })
     }
